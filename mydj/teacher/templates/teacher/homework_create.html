@@ -1,0 +1,25 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+
+{% load form_filters %}
+
+{% block title %} Give a New Homework {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        <h1 class="mb-4">Please Input Information About Homework</h1>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                {{ form.description|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_deadline" class="form-label">Deadline</label>
+                {{ form.deadline|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <a href="{% url 'homework_t' %}" class="btn btn-link mt-3">
+            <i class="fa-solid fa-book me-2"></i> Homeworks
+        </a>
+    </div>
+{% endblock %}

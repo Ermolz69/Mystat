@@ -1,0 +1,25 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+
+{% load form_filters %}
+
+{% block title %} Plan a New Lesson {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        <h1 class="mb-4">Plan a New Lesson</h1>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_subject" class="form-label">Subject</label>
+                {{ form.subject|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_date" class="form-label">Date of Lesson</label>
+                {{ form.date|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <a href="{% url 'schedule_t' %}" class="btn btn-link mt-3">
+            <i class="fa-solid fa-table me-2"></i> Back
+        </a>
+    </div>
+{% endblock %}

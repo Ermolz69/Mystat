@@ -1,0 +1,26 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Homework Details {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        <h1 class="mb-4">Assignment Details</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                <p class="card-text">{{ task.description }}</p>
+                <h5 class="card-title">Deadline</h5>
+                <p class="card-text">{{ task.deadline }}</p>
+            </div>
+        </div>
+
+        <a href="{% url 'homework-delete' task.id %}" class="btn btn-danger me-2">
+            <i class="fa-solid fa-trash me-1"></i> Delete
+        </a>
+        <a href="{% url 'homework-update' task.id %}" class="btn btn-warning me-2">
+            <i class="fa-solid fa-edit me-1"></i> Update
+        </a>
+        <a href="{% url 'homework_t' %}" class="btn btn-primary">
+            <i class="fa-solid fa-house me-2"></i> Homeworks
+        </a>
+    </div>
+{% endblock %}

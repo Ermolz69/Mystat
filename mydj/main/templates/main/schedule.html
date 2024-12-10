@@ -1,0 +1,35 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Schedule {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        {% block contenta %}
+            <h1 class="mb-4">Check Our Schedule Below</h1>
+        {% endblock %}
+
+        <div class="row">
+            {% for i in lessons %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Lesson №{{i.id}}</h5>
+                        <p class="card-text"><strong>Subject:</strong> {{i.subject }}</p>
+                        <p class="card-text"><strong>Date of Lessons:</strong> {{i.date }}</p>
+                        {% block contenti %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% block contentd %}
+            <a href="{% url 'create_schedule' %}" class="btn btn-success me-2">
+                <i class="fa-solid fa-plus me-1"></i> Add Lesson
+            </a>
+            <a href="{% url 'home_teacher' %}" class="btn btn-primary">
+                <i class="fa-solid fa-house me-2"></i> Back
+            </a>
+        {% endblock %}
+    </div>
+{% endblock %}

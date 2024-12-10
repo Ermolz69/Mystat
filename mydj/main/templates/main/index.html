@@ -1,0 +1,23 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <div class="text-center mt-4">
+        <h1 class="mb-4">Welcome to IT Step</h1>
+        <img src="{% static 'main/img/logo.png' %}" class="img-fluid d-block mx-auto mb-4" alt="IT Step Logo">
+        <div class="list-group">
+            <a href="{% url 'about' %}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-question me-2"></i> About
+            </a>
+            <a href="{% url 'feedback' %}" class="list-group-item list-group-item-action">
+                <i class="fa-regular fa-comments me-2"></i> Feedback
+            </a>
+            <a href="{% url 'schedule' %}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-table me-2"></i> Schedule
+            </a>
+            <a href="{% url 'homework' %}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-book me-2"></i> Homework
+            </a>
+        </div>
+    </div>
+{% endblock %}

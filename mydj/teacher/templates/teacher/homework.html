@@ -1,0 +1,32 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Homework {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        {% block contenta %}
+            <h1 class="mb-4">Find Student Assignments Here</h1>
+        {% endblock %}
+
+        <div class="row">
+            {% for i in tasks %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Assignment №{{i.id}}</h5>
+                        <p class="card-text">{{ i.description }}</p>
+                        <a href="{% url 'homework-detail' i.id %}" class="btn btn-info">More Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% block contentd %}
+            <a href="{% url 'create_homework' %}" class="btn btn-success me-2">
+                <i class="fa-solid fa-plus me-1"></i> Add Homework
+            </a>
+            <a href="{% url 'home_teacher' %}" class="btn btn-primary">
+                <i class="fa-solid fa-house me-2"></i> Back
+            </a>
+        {% endblock %}
+    </div>
+{% endblock %}

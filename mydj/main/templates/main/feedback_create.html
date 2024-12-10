@@ -1,0 +1,25 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+
+{% load form_filters %}
+
+{% block title %} Feedback {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        <h1 class="mb-4">Please Share Your Feedback</h1>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_topic" class="form-label">Topic</label>
+                {{ form.topic|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                {{ form.description|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <a href="{% url 'feedback' %}" class="btn btn-link mt-3">
+            <i class="fa-regular fa-comments me-2"></i> Feedbacks
+        </a>
+    </div>
+{% endblock %}

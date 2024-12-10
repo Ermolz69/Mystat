@@ -1,0 +1,33 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Schedule {% endblock %}
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Schedule</h1>
+        <div class="row">
+            {% for lesson in lessons %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Lesson №{{ lesson.id }}</h5>
+                        <p class="card-text"><strong>Subject:</strong> {{ lesson.subject }}</p>
+                        <p class="card-text"><strong>Date:</strong> {{ lesson.date }}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="{% url 'schedule-detail' lesson.id %}" class="btn btn-info btn-sm">Details</a>
+                        <a href="{% url 'schedule-update' lesson.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'schedule-delete' lesson.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No lessons available.</p>
+                <a href="{% url 'create_schedule' %}" class="btn btn-primary mt-3">Add New Lesson</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{% url 'create_schedule' %}" class="btn btn-primary mt-4">Add New Lesson</a>
+        </div>
+    </div>
+{% endblock %}

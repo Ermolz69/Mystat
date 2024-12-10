@@ -1,0 +1,23 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Delete Lesson {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        {% block contenta %}
+            <h1 class="mb-4">Delete Lesson</h1>
+        {% endblock %}
+
+        <div class="alert alert-danger">
+            <h2>Are you sure?</h2>
+        </div>
+        <form method="post" class="mb-4">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, I am sure - Delete Lesson</button>
+        </form>
+
+        {% block contentd %}
+            <a href="{% url 'schedule_t' %}" class="btn btn-secondary">
+                <i class="fa-solid fa-house me-2"></i> Back to Schedules
+            </a>
+        {% endblock %}
+    </div>
+{% endblock %}

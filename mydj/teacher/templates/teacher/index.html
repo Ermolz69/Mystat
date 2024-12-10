@@ -1,0 +1,17 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} Teacher Menu {% endblock %}
+{% load static %}
+{% block content %}
+    <div class="text-center mt-4">
+        <h1 class="mb-4">Teacher Main Menu</h1>
+        <img src="{% static 'main/img/logo.png' %}" class="img-fluid mb-4" alt="ITStep Logo">
+        <div class="list-group">
+            <a href="{% url 'homework_t' %}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-book me-2"></i> Given Homeworks
+            </a>
+            <a href="{% url 'schedule_t' %}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-table me-2"></i> My Schedule
+            </a>
+        </div>
+    </div>
+{% endblock %}

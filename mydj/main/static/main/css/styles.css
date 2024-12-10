@@ -1,0 +1,16 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #f4d4f9;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007BBF;
+    color: white;
+}
+

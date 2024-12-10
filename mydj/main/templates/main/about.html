@@ -1,0 +1,11 @@
+{% extends 'mydj/templates/mydj/layout.html' %}
+{% block title %} About {% endblock %}
+{% block content %}
+    <div class="mt-4">
+        <h1 class="mb-3">About</h1>
+        <p class="lead">Welcome to the about page. Here you can learn more about us.</p>
+        <a href="{% url 'home_student' %}" class="btn btn-primary mt-3">
+            <i class="fa-solid fa-house me-2"></i> Home
+        </a>
+    </div>
+{% endblock %}
